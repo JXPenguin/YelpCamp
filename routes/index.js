@@ -27,9 +27,10 @@ router.post("/register", async (req, res)=>{
 		// Register user info from new user object into mongdb, then store into var user
 		let user = await User.register(newUser, password);
 		// Check if user authenticated, if so allow user to redirect, err will catch
-		await passport.authenticate("local")
-		req.flash("success", "Welcome to YelpCamp " + user.username);
-		res.redirect("/campgrounds");
+		passport.authenticate("local")(req, res, ()=>{
+			req.flash("success", "Welcome to YelpCamp " + user.username);
+			res.redirect("/campgrounds");
+		});
 	} catch (err) {
 		req.flash("error", err.message);
 		console.log(err);

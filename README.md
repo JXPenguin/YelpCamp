@@ -10,8 +10,15 @@ Please see package.json for list of packages required.
 
 ## Usage
 
+To host and view the website, execute the below commands in terminal.
+
 ```javascript
 mongod
+```
+
+Create new terminal, and navigate to the YelpCamp directory.
+
+```javascript
 nodemon app.js
 ```
 

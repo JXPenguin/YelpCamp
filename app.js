@@ -59,7 +59,7 @@ app.use("/", indexRoutes);
 app.use("/campgrounds", campgroundRoutes);
 app.use("/campgrounds/:id/comments", commentRoutes);
 
-app.listen(3000, () => {
+app.listen(4000, () => {
 	console.log("Yelp Camp connected");
 });
 

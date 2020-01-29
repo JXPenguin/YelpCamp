@@ -21,14 +21,21 @@ const commentRoutes = require("./routes/comments"),
 
 
 mongoose.set('useUnifiedTopology', true);
-mongoose.connect("mongodb+srv://jxpenguin:WKqcmX3T7y3idDNu@cluster0-cfera.mongodb.net/test?retryWrites=true&w=majority", {
+// mongoose.connect("mongodb://localhost/yelp_camp");
+// mongoose.connect("mongodb+srv://jxpenguin:WKqcmX3T7y3idDNu@cluster0-cfera.mongodb.net/test?retryWrites=true&w=majority");
+
+console.log(process.env.DATABASEURL);
+
+mongoose.connect(process.env.DATABASEURL, {
 	useNewUrlParser: true,
 	useCreateIndex: true
 }).then(()=>{
-	console.log("Connected to DB")
+	console.log("Connected to D")
 }).catch(err => {
 	console.log("Error:", err.message);
 });
+
+process.env.databaseURL
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
